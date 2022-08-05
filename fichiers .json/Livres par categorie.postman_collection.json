@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "d588fb89-0559-4428-ac57-1b79e4f36be4",
+		"name": "Livres par categorie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21932398"
+	},
+	"item": [
+		{
+			"name": "Liste de livre d'une categorie",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/categories/1/livres",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"categories",
+						"1",
+						"livres"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
