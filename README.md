@@ -1,15 +1,15 @@
 # Book.api
 Full Stack Book.api
 Getting Started
-Installing Dependencies
+# Installing Dependencies
 python 3.10.0
 pip 22.1.2 from C:\Users\justy\AppData\Local\Programs\Python\Python310\lib\site-packages\pip (python 3.10)
 Follow instructions to install the latest version of python for your platform in the python docs
 
-Virtual Enviornment
+# Virtual Enviornment
 We recommend working within a virtual environment whenever using Python for projects. This keeps your dependencies for each project separate and organaized. Instructions for setting up a virual enviornment for your platform can be found in the python docs
 
-PIP Dependencies
+# PIP Dependencies
 Once you have your virtual environment setup and running, install dependencies by naviging to the /Book.api directory and running:
 
 pip install -r requirements.txt
@@ -17,10 +17,10 @@ or
 pip3 install -r requirements.txt
 This will install all of the required packages we selected within the requirements.txt file.
 Key Dependencies
-• app.py is a lightweight backend microservices framework. Flask is required to handle requests and responses.
-•SQLAlchemy is the Python SQL toolkit and ORM we’ll use handle the lightweight sqlite database. You’ll primarily work in app.py and can reference auth.py.
-•app-CORS is the extension we’ll use to handle cross origin requests from our frontend server.
-Database Setup
+ •app.py is a lightweight backend microservices framework. Flask is required to handle requests and responses.
+ •SQLAlchemy is the Python SQL toolkit and ORM we’ll use handle the lightweight sqlite database. You’ll primarily work in app.py and can reference auth.py.
+ •app-CORS is the extension we’ll use to handle cross origin requests from our frontend server.
+# Database Setup
 With Postgres running, restore a database using the api_database.sql file provided. From the backend folder in terminal run:
 psql api_database < api_database.sql
 Running the server
@@ -41,20 +41,20 @@ Setting the FLASK_ENV variable to development will detect file changes and resta
 
 Setting the FLASK_APP variable to flaskr directs flask to use the flaskr directory and the init.py file to find the application
 
-API REFERENCE
+# API REFERENCE
 Getting starter
 
 Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend app is hosted at the default, http://localhost:5000; which is set as a proxy in frontend configuration.
 
-Error Handling
+# Error Handling
 Errors are retourned as JSON objects in the following format: { “success”:False “error”: 400 “message”:"Bad request }
 
 The API will return four error types when requests fail: . 400: Bad request . 500: Internal server error . 422: Unprocessable . 404: Not found
 
-Endpoints
+# Endpoints
 . ## GET/books
 
-GENERAL:
+# GENERAL:
 This endpoints returns a list of book object, success value, total number of the books.
 
 SAMPLE: curl http://localhost:5000/livres
@@ -181,15 +181,7 @@ SAMPLE: curl http://localhost:5000/categories
 
   SAMPLE.....For create
 
-  curl -X POST http://localhost:5000/livres -H "Content-Type:application/json" -d
-  "{
-  "isbn": "PM",
-  "titre": "Le corps animal",
-  "date_parution": "Tue, 05 Sep 1505 00:00:00 GMT",
-  "editeur": "Gillos",
-  "version": "2.1",
-  "categorie_id": 2,
-  }"
+  curl -X POST http://localhost:5000/livres -H "Content-Type:application/json" -d "{"isbn": "PM","titre": "Le corps animal","date_parution": "Tue, 05 Sep 1505 00:00:00 GMT","editeur": "Gillos","version": "2.1","categorie_id": 2,}"
 
 {
   "livres": [ 
@@ -273,6 +265,10 @@ To run the tests, run
 dropdb api createdb api psql api_test < api.sql python test_app.py
 
 
+
+
+
+              
 
 
 
