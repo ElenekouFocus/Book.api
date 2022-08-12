@@ -6,7 +6,7 @@ python 3.10.0
 pip 22.1.2 from C:\Users\justy\AppData\Local\Programs\Python\Python310\lib\site-packages\pip (python 3.10)
 Follow instructions to install the latest version of python for your platform in the python docs
 
-# Virtual Enviornment
+# Virtual Environment
 We recommend working within a virtual environment whenever using Python for projects. This keeps your dependencies for each project separate and organaized. Instructions for setting up a virual enviornment for your platform can be found in the python docs
 
 # PIP Dependencies
