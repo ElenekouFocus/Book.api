@@ -17,9 +17,9 @@ or
 pip3 install -r requirements.txt
 This will install all of the required packages we selected within the requirements.txt file.
 Key Dependencies
-• Flask is a lightweight backend microservices framework. Flask is required to handle requests and responses.
+• app.py is a lightweight backend microservices framework. Flask is required to handle requests and responses.
 •SQLAlchemy is the Python SQL toolkit and ORM we’ll use handle the lightweight sqlite database. You’ll primarily work in app.py and can reference auth.py.
-•Flask-CORS is the extension we’ll use to handle cross origin requests from our frontend server.
+•app-CORS is the extension we’ll use to handle cross origin requests from our frontend server.
 Database Setup
 With Postgres running, restore a database using the api_database.sql file provided. From the backend folder in terminal run:
 psql api_database < api_database.sql
@@ -28,13 +28,13 @@ From within the Book_api directory first ensure you are working using your creat
 
 To run the server on Linux or Mac, execute:
 
-export FLASK_APP=flaskr
+export FLASK_APP=app.py
 export FLASK_ENV=development
 flask run
 
 To run the server on Windows, execute:
 
-set FLASK_APP=flaskr
+set FLASK_APP=app.py
 set FLASK_ENV=development
 flask run
 Setting the FLASK_ENV variable to development will detect file changes and restart the server automatically.
@@ -262,7 +262,7 @@ SAMPLE: curl http://localhost:5000/categories
 }
 ## Testing
 To run the tests, run
-dropdb api createdb api psql api_test < api.sql python test_flaskr.py
+dropdb api createdb api psql api_test < api.sql python test_app.py
 
 
 
