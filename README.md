@@ -1,7 +1,4 @@
 # Book.api
-
-Toggle Mode
-  
 Full Stack Book.api
 Getting Started
 Installing Dependencies
@@ -60,18 +57,215 @@ Endpoints
 GENERAL:
 This endpoints returns a list of book object, success value, total number of the books.
 
-SAMPLE: curl http://localhost:5000/books
+SAMPLE: curl http://localhost:5000/livres
+
 {
-“livres”: [
+  "livres": [
+    {
+      "categorie_id": 1, 
+      "date_parution": "Tue, 05 Sep 1505 00:00:00 GMT", 
+      "editeur": "Gil", 
+      "id": 3, 
+      "isbn": "PM", 
+      "titre": "Le corps animal", 
+      "version": "2.1"
+    }, 
+    {
+      "categorie_id": 1, 
+      "date_parution": "Wed, 10 Feb 2016 00:00:00 GMT", 
+      "editeur": "bertin", 
+      "id": 4, 
+      "isbn": "PA", 
+      "titre": "Corps humain", 
+      "version": "1.0.1"
+    }, 
+    {
+      "categorie_id": 1, 
+      "date_parution": "Sun, 10 Feb 2019 00:00:00 GMT", 
+      "editeur": "bertin0", 
+      "id": 5, 
+      "isbn": "PA", 
+      "titre": "Corps humain", 
+      "version": "1.0.2"
+    }
+  ], 
+  "nombres_livres": 3
+}
+
+SAMPLE: curl http://localhost:5000/categories
+
+ "categories": [
+        {
+            "description_categorie": "Biolo",
+            "id": 1,
+            "libelle_categorie": "SA"
+        },
+        {
+            "description_categorie": "Tous ce qui nous entour",
+            "id": 4,
+            "libelle_categorie": "Sciences Environnementale"
+        },
+        {
+            "description_categorie": "Etude de la litterature",
+            "id": 5,
+            "libelle_categorie": "livres litteraires"
+        },
+        {
+            "description_categorie": "Etude de la politique",
+            "id": 6,
+            "libelle_categorie": "livres geopolitiques"
+        }
+    ],
+    "nombre_categorie": 4
+}
+. ## DELETE/livres (livre_id)
+
+    GENERAL:
+        Delete the book of the given ID if it exists. Return the id of the deleted livre, success value, total of books a
+
+        Results are paginated in groups of 10. include a request argument to choose page number, starting from 1.
+
+        SAMPLE: curl -X DELETE http://localhost:5000/livres/3
+
 {
-“categorie_id”: 1,
-“date_parution”: “Tue, 05 Sep 1505 00:00:00 GMT”,
-“editeur”: “Gil”,
-“id”: 3,
-“isbn”: “PM”,
-“titre”: “Le corps animal”,
-“version”: “2.1”
+  "livres": [ 
+    {
+      "categorie_id": 1, 
+      "date_parution": "Wed, 10 Feb 2016 00:00:00 GMT", 
+      "editeur": "bertin", 
+      "id": 4, 
+      "isbn": "PA", 
+      "titre": "Corps humain", 
+      "version": "1.0.1"
+    }, 
+    {
+      "categorie_id": 1, 
+      "date_parution": "Sun, 10 Feb 2019 00:00:00 GMT", 
+      "editeur": "bertin0", 
+      "id": 5, 
+      "isbn": "PA", 
+      "titre": "Corps humain", 
+      "version": "1.0.2"
+    }
+  ], 
+  "nombres_livres": 2
 }
-],
-“nombres_livres”: 1
+
+. ##PATCH/livres(livre_id)
+  GENERAL:
+  This endpoint is used to update a primary_color of book
+  We return a book which we update
+
+  SAMPLE.....For Patch
+  ``` curl -X PATCH http://localhost:5000/livres/4 -H "Content-Type:application/json" -d "{"editeur":"Ablavi"}"
+{
+    "categorie_id": 1, 
+    "date_parution": "Wed, 10 Feb 2016 00:00:00 GMT", 
+    "editeur": "Ablavi", 
+    "id": 4, 
+    "isbn": "PA", 
+    "titre": "Corps humain", 
+    "version": "1.0.1"
+},
+
+. ## POST/plants
+
+  GENERAL:    
+  This endpoint is used to create a new book or to search for a  book in relation to the terms contained in the  books.
+  When the searchTerm parameter is passed from the json, the endpoint performs the search. Otherwise, it is the creation of a new question.
+  In the case of the creation of a new question:
+  We return the ID of the new book created, the book that was created, the list of  book and the number of  books.
+
+  SAMPLE.....For Search:
+  curl -X POST http://localhost:5000/livres -H "Content-Type:application/json" -d "{"search":"title"}"
+
+  SAMPLE.....For create
+
+  curl -X POST http://localhost:5000/livres -H "Content-Type:application/json" -d "{"isbn": "PM","titre": "Le corps animal","date_parution": "Tue, 05 Sep 1505 00:00:00 GMT","editeur": "Gillos","version": "2.1","categorie_id": 2,}"
+
+{
+  "livres": [ 
+    {
+      "categorie_id": 1, 
+      "date_parution": "Wed, 10 Feb 2016 00:00:00 GMT", 
+      "editeur": "bertin", 
+      "id": 4, 
+      "isbn": "PA", 
+      "titre": "Corps humain", 
+      "version": "1.0.1"
+    }, 
+    {
+      "categorie_id": 1, 
+      "date_parution": "Sun, 10 Feb 2019 00:00:00 GMT", 
+      "editeur": "bertin0", 
+      "id": 5, 
+      "isbn": "PA", 
+      "titre": "Corps humain", 
+      "version": "1.0.2"
+    },
+    {
+      "categorie_id": 2, 
+      "date_parution": "Tue, 05 Sep 1505 00:00:00 GMT", 
+      "editeur": "Gillos", 
+      "id": 6, 
+      "isbn": "PM", 
+      "titre": "Corps animal", 
+      "version": "2.1"
+    }
+  ], 
+  "nombres_livres": 3
 }
+. ## POST/categories
+
+  GENERAL:    
+  This endpoint is used to create a new categorie or to search for a categorie in relation to the terms contained in the categories.
+  When the searchTerm parameter is passed from the json, the endpoint performs the search. Otherwise, it is the creation of a new question.
+  In the case of the creation of a new question:
+  We return the ID of the new categorie created, the book that was created, the list of  book and the number of  categories.
+
+  SAMPLE.....For Search:
+  curl -X POST http://localhost:5000/categories -H "Content-Type:application/json" -d "{"search":"title"}"
+
+  SAMPLE.....For create
+
+  curl -X POST http://localhost:5000/livres -H "Content-Type:application/json" -d "{"libelle_categorie": "Sciences geopolitiquee", "description_categorie": "Tous ce qui concerne la politique"}"
+{
+    "categorie_id": 7,
+    "categories": [
+        {
+            "description_categorie": "Biolo",
+            "id": 1,
+            "libelle_categorie": "SA"
+        },
+        {
+            "description_categorie": "Tous ce qui nous entour",
+            "id": 4,
+            "libelle_categorie": "Sciences Environnementale"
+        },
+        {
+            "description_categorie": "Etude de la litterature",
+            "id": 5,
+            "libelle_categorie": "livres litteraires"
+        },
+        {
+            "description_categorie": "Etude de la politique",
+            "id": 6,
+            "libelle_categorie": "livres geopolitiques"
+        },
+        {
+            "description_categorie": "Tous ce qui concerne la politique",
+            "id": 7,
+            "libelle_categorie": "Sciences geopolitiquee"
+        }
+    ],
+    "nombre_categories": 5
+}
+## Testing
+To run the tests, run
+dropdb api createdb api psql api_test < api.sql python test_flaskr.py
+
+
+
+
+
+              
