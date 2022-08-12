@@ -181,7 +181,15 @@ SAMPLE: curl http://localhost:5000/categories
 
   SAMPLE.....For create
 
-  curl -X POST http://localhost:5000/livres -H "Content-Type:application/json" -d "{"isbn": "PM","titre": "Le corps animal","date_parution": "Tue, 05 Sep 1505 00:00:00 GMT","editeur": "Gillos","version": "2.1","categorie_id": 2,}"
+  curl -X POST http://localhost:5000/livres -H "Content-Type:application/json" -d
+  "{
+  "isbn": "PM",
+  "titre": "Le corps animal",
+  "date_parution": "Tue, 05 Sep 1505 00:00:00 GMT",
+  "editeur": "Gillos",
+  "version": "2.1",
+  "categorie_id": 2,
+  }"
 
 {
   "livres": [ 
